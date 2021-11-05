@@ -1,2 +1,2 @@
-select * from {{ref('data_prep')}}
-limit 5
+select * from {{ref('data_prep')}} 
+limit 10
