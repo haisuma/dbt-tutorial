@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'bi_production'
+name: 'jaffle_shop'
 version: '1.0.0'
 config-version: 2
 
@@ -32,7 +32,397 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  bi_production:
+  jaffle_shop:
     # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    # example:
+    #   +materialized: view
+
+
+# name: 'bi_production'
+# version: '2.1.2'
+# config-version: 2
+# require-dbt-version: ">=0.20.0,<0.21.0"
+
+# profile: 'bi_prod'
+
+# source-paths: ["models"]
+# analysis-paths: ["analysis"]
+# test-paths: ["tests"]
+# data-paths: ["data"]
+# macro-paths: ["macros"]
+
+# target-path: "target"  # directory which will store compiled SQL files
+# clean-targets:         # directories to be removed by `dbt clean`
+#     - "target"
+#     - "dbt_modules"
+
+# on-run-start:
+#   - '{{create_udfs()}}'
+
+# on-run-end:
+
+# vars:
+#   outreach_org_guid: "8f09ed59-04ba-11e6-940a-02c9a687c33b"
+#   outreach_org_bento: "app1d"
+#   outreach_staging_guid: "483aeafb-00e5-11e6-8b05-06ff2b982bcb"
+#   demo_sfdc_acct: "001d000001uvyvkAAA"
+#   outreach_sfdc_acct: "001d000001wthqLAAQ"
+#   active_territory_model_id: "0MA0V000001YVhNWAW"
+#   sys_max_timestamp: "'9999-12-31 23:59:59'::TIMESTAMP"
+
+# models:
+#   transient: false
+
+#   bi_production:
+#     bi_production:
+#       enabled: true
+#       materialized: "view"
+#       schema: "public"
+#       query_tag: '{\"source\": \"bi_prod\"}'
+#       tags: ["bi_prod", "daily"]
+
+#       sales:
+#         query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"sales\"}'
+#         tags: ["sales"]
+
+#       sfdc_json_refactor:
+#         schema: "sfdc_json_refactor"
+#         query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"bi_production\"}'
+#         tags: ["sales"]
+
+#       csm:
+#         schema: 'csm'
+#         query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"csm\"}'
+#         tags: ["csm"]
+
+#         true_up:
+#           tags: ["true_up"]
+
+#         cef:
+#           tags: ["cef"]
+#           query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"csm\", \"sub_vertical\": \"cef\"}'
+
+#       product:
+#         schema: 'product'
+#         query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"product\"}'
+#         tags: ["product"]
+
+#         daily_active_users:
+#           tags: ["daily_active_users"]
+#           query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"product\", \"sub_vertical\": \"daily_active_users\"}'
+
+#           xdn:
+#             tags: ["xdn","active_users_xdn"]
+#             query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"product\", \"sub_vertical\": \"active_users_xdn\"}'
+
+#           monthly:
+#             tags: ["active_users_monthly"]
+#             query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"product\", \"sub_vertical\": \"active_users_monthly\"}'
+
+#         pnp:
+#           tags: ["pnp"]
+#           query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"product\", \"sub_vertical\": \"pnp\"}'
+
+#         feature:
+#           tags: ["product_feature"]
+#           query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"product\", \"sub_vertical\": \"feature\"}'
+
+#         ephemeral:
+#           materialized: 'ephemeral'
+
+#       marketing:
+#         schema: 'marketing'
+#         query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"marketing\"}'
+#         tags: ["marketing"]
+
+#       billing:
+#         schema: 'billing'
+#         query_tag: '{\"source\": \"bi_prod\", \"vertical\": \"billing\"}'
+#         tags: ["billing"]
+
+
+#     business_metrics:
+#       query_tag: '{\"source\": \"business_metrics\"}'
+#       enabled: true
+#       materialized: "view"
+#       tags: ["business_metrics", "daily"]
+
+#       finance:
+#         schema: "finance"
+
+#       finance_intermediate:
+#         schema: "finance_intermediate"
+
+#       product:
+#         schema: "product"
+
+#       product_intermediate:
+#         schema: "product_intermediate"
+
+
+#     vendor_data:
+#       query_tag: '{\"source\": \"vendor_data\"}'
+#       enabled: true
+#       materialized: "view"
+#       tags: ["vendor_data", "daily"]
+
+#       aha:
+#         schema: "aha"
+#         query_tag: '{\"source\": \"aha\"}'
+#         tags: ["aha"]
+
+#       jira:
+#         schema: "jira"
+#         query_tag: '{\"source\": \"jira\"}'
+#         tags: ["jira"]
+
+#       jira_json:
+#         schema: "jira_json"
+#         query_tag: '{\"source\": \"jira\"}'
+#         tags: ["jira"]
+
+#       github:
+#         schema: "github"
+#         query_tag: '{\"source\": \"github\"}'
+#         tags: ["github"]
+
+#       launch_darkly:
+#         schema: "launch_darkly"
+#         query_tag: '{\"source\": \"launch_darkly\"}'
+#         tags: ["launch_darkly"]
+
+#       mailgun:
+#         schema: "mailgun"
+#         query_tag: '{\"source\": \"mailgun\"}'
+#         tags: ["mailgun"]
+
+#       pardot:
+#         schema: "pardot"
+#         query_tag: '{\"source\": \"pardot\"}'
+#         tags: ["pardot"]
+
+#       pendo:
+#         enabled: false
+#         schema: "pendo"
+#         query_tag: '{\"source\": \"pendo\"}'
+#         tags: ["pendo"]
+
+#       pingdom:
+#         schema: "pingdom"
+#         query_tag: '{\"source\": \"pingdom\"}'
+#         tags: ["pingdom"]
+
+#       opslevel:
+#         schema: "opslevel"
+#         query_tag: '{\"source\": \"opslevel\"}'
+#         tags: ["opslevel"]
+
+#       salesforce:
+#         schema: "salesforce"
+#         query_tag: '{\"source\": \"sfdc\"}'
+#         tags: ["sfdc"]
+
+#       salesforce_json_raw:
+#         schema: "salesforce_json"
+#         query_tag: '{\"source\": \"sfdc_json\"}'
+#         tags: ["sfdc"]
+
+#       salesforce_json_parsed:
+#         schema: "salesforce_json_parsed"
+#         query_tag: '{\"source\": \"sfdc_json\"}'
+#         tags: ["sfdc"]
+
+#       skilljar:
+#         schema: "skilljar"
+#         query_tag: '{\"source\": \"skilljar\"}'
+#         tags: ["skilljar"]
+
+#       statuspage:
+#         schema: "statuspage"
+#         query_tag: '{\"source\": \"statuspage\"}'
+#         tags: ["statuspage"]
+
+#       twilio:
+#         schema: "twilio"
+#         query_tag: '{\"source\": \"twilio\"}'
+#         tags: ["twilio"]        
+
+#       zendesk:
+#         schema: "zendesk"
+#         query_tag: '{\"source\": \"zendesk\"}'
+#         tags: ["zendesk"]
+
+#       zuora:
+#         schema: "zuora"
+#         query_tag: '{\"source\": \"zuora\"}'
+#         tags: ["zuora"]
+
+#       zuora_json:
+#         schema: "zuora_json"
+#         query_tag: '{\"source\": \"zuora\"}'
+#         tags: ["zuora_json"]
+
+#       circleci:
+#         schema: "circleci"
+#         query_tag: '{\"source\": \"circleci\"}'
+#         tags: ["circleci"]
+
+#     internal_data:
+#       query_tag: '{\"source\": \"internal_data\"}'
+#       enabled: true
+#       materialized: "view"
+#       tags: ["internal_data", "daily"]
+
+#       data_science:
+#         schema: "data_science"
+#         tags: ["data_science"]
+
+#       errors:
+#         schema: "errors"
+#         tags: ["errors"]
+
+#       engineering:
+#         schema: "public"
+#         tags: ["engineering"]
+
+#       redshift:
+#         schema: "redshift"
+#         tags: ["redshift"]
+
+#       events:
+#         schema: "events"
+#         tags: ["events"]
+
+#         intermediate:
+#           schema: "events_raw"
+
+#       azure:
+#         schema: "azure"
+#         tags: ["azure"]
+
+#       tableau:
+#         schema: "tableau"
+#         tags: ["tableau"]
+
+#       olis:
+#         schema: "olis"
+#         tags: ["olis"]
+
+#     matt_daemon:
+#       query_tag: '{\"source\": \"matt_daemon\"}'
+#       tags: ["matt_daemon", "daily"]
+#       materialized: "view"
+
+#       app:
+#         schema: "app"
+#         tags: ["matt_daemon_app"]
+#       modeled:
+#         schema: "modeled"
+#         tags: ["matt_daemon_modeled"]
+
+
+#     data_quality:
+#       query_tag: '{\"source\": \"data_quality\"}'
+#       enabled: true
+#       materialized: "view"
+#       tags: ["data_quality"]
+
+#       dbt:
+#         schema: "dbt"
+#         query_tag: '{\"source\": \"dbt\"}'
+#         tags: ["dbt"]
+
+#       salesforce_json:
+#         schema: "salesforce_json"
+#         query_tag: '{\"source\": \"salesforce_json\"}'
+#         tags: ["salesforce_json"]
+
+
+#     tableau_lineage:
+#       query_tag: '{\"source\": \"tableau_lineage\"}'
+#       enabled: false
+#       schema: "tableau_lineage"
+#       materialized: "ephemeral"
+#       tags: ["tableau_lineage"]
+
+#       tableau_datasources:
+#         tags: ["tableau_datasources"]
+#       tableau_workbooks:
+#         tags: ["tableau_workbooks"]
+#       ##redshift_tables:
+#         ##tags: ["redshift_migration"]
+
+# seeds:
+#   bi_production:
+#     enabled: true
+#     database: bi_production_seeds
+#     quote_columns: false
+
+#     business_metrics:
+#       schema: business_metrics
+    
+#     marketing:
+#       schema: marketing
+#       expansion_funnel_goals_by_segment_and_month:
+#         +column_types:
+#             MONTH: date
+#             GOAL: float
+#       expansion_responses_goals_by_marketing_channel_and_month:
+#         +column_types:
+#             MONTH: date
+#             GOAL: float
+#       expansion_responses_goals_by_source_bucket_and_month:
+#         +column_types:
+#             MONTH: date
+#             GOAL: float
+#       kaia_funnel_goals_by_segment_and_quarter:
+#         +column_types:
+#             GOAL: float
+#       new_logo_funnel_goals_by_segment_and_month:
+#         +column_types:
+#             MONTH: date
+#             GOAL: float
+#       new_logo_mcl_goals_by_marketing_channel_and_month:
+#         +column_types:
+#             MONTH: date
+#             GOAL: float
+#       new_logo_mcl_goals_by_source_bucket_and_month:
+#         +column_types:
+#             MONTH: date
+#             GOAL: float
+#       new_logo_mql_conversion_goals_by_campaign_and_quarter:
+#         +column_tpyes:
+#             GOAL: float
+           
+#     sales:
+#       schema: sales
+#       sales_manager_quota:
+#         +column_types:
+#           Month: date
+#           Manager_Quota: float
+#       sales_plan:
+#         +column_types:
+#           Month: date
+#           Plan_New_ARR_Sold: float
+#       sales_pipeline_plan:
+#         +column_types:
+#           Month: date
+#           SAL_Pipeline_ARR_Goal: float
+#       sales_forecast_unseen_intra_quarter:
+#         +column_types:
+#           Week: date
+#           Unseen_Intra_Quarter_ARR: float
+#       sales_ae_quota:
+#         +column_types:
+#           Month: date
+#           AE_Quota: float
+#           Win_Rate: float
+#           Pipeline_Coverage_Multiplier: float
+#           Avg_Deal_Size: float
+#           Avg_Cycle_Time: float
+#       ramp_month_list:
+#         +column_types:
+#           Month_After_Hire: int
+
+#     product:
+#       schema: product
